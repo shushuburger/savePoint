@@ -1,0 +1,10 @@
+/* 대처 방안 섹션 */
+/* 이 아래에서 작업하세요!! (경민,여민) */
+/* 주석 삭제하지 말 것! (github 편집 시 기준점으로 삼을 거임) */
+.guide-section {
+    background-color: #ffffff;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

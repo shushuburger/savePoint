@@ -1,0 +1,224 @@
+/* main.css */
+/* 전체 기본 설정 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* 상단바 */
+#header {
+    height: 56px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 지역 및 시간 */
+.location-time {
+    text-align: center;
+    padding: 1rem;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: #e2e0e0de;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+/* 미세먼지/초미세먼지 토글 */
+.dust-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.dust-toggle button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* 좌측 패널(그래프 + 가이드) */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 0; /* 추가: 넘침 방지 */
+}
+
+/* 그래프 영역 */
+/* 그래프 영역을 가로 정렬 */
+.graph-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem; /* 카드 사이 간격 */
+  padding: 1rem 0;
+  max-width: 800px;    /* ✅ 고정 너비 지정 */
+  margin: 0 auto;      /* ✅ 가운데 정렬 */
+}
+
+/* 각 개별 gauge 카드 */
+.graph-section .gauge {
+  flex: 0 0 220px;      /* ✅ 정확한 너비 설정 */
+  max-width: 240px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.graph-section .gauge canvas {
+    margin-bottom: 0.25rem;
+    padding: 0;
+}
+
+.graph-section .gauge p {
+    margin: 0.25rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.graph-section .gauge .infoBtn {
+    margin: 0.2rem;
+    padding: 0;
+}
+
+.graph-section .gauge h5 {
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+/* 지도 영역 */
+.map-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0; /* 추가: 넘침 방지 */
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#myLocationBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    border-radius: 3px;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    z-index: 1000;
+}
+
+#ruleGauge {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.leaflet-tooltip.region-tooltip {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: #111;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    padding: 2px 4px;
+    pointer-events: none;
+}
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.legend {
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.legend.good {
+    background-color: #4caf50;
+}
+
+.legend.normal {
+    background-color: #cddc39;
+}
+
+.legend.bad {
+    background-color: #ff9800;
+}
+
+.legend.very-bad {
+    background-color: #f44336;
+}
+
+/* 등급별 텍스트 색상 */
+.text-grade1 { color: #4285F4 !important; }
+.text-grade2 { color: #9CD5F9 !important; }
+.text-grade3 { color: #22B14C !important; }
+.text-grade4 { color: #B5E61D !important; }
+.text-grade5 { color: #FFD400 !important; }
+.text-grade6 { color: #FF7F27 !important; }
+.text-grade7 { color: #F52020 !important; }
+
+/* 팝오버 박스 */
+.popover-box {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 6px;
+    width: 200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    font-size: 0.85rem;
+}
+
+/* 반응형 대응 */
+@media (max-width: 992px) {
+    .left-panel {
+        width: 100%;
+    }
+
+    .graph-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-section {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
