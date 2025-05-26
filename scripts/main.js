@@ -60,6 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(res => res.json())
     .then(geojson => {
       geojsonLayer = L.geoJSON(geojson, {
+        /* 대전광역시만 보이도록 필터링 */
+        filter: feature => {
+          const code = feature.properties.code.toString().padStart(5, '0');
+          const full = codeToFullnameMap[code]?.full;
+          return full?.startsWith('대전광역시');
+        },
         style: feature => getStyleByPollutant(feature),
         onEachFeature: (feature, layer) => {
           const code = feature.properties.code.toString().padStart(5, '0');
