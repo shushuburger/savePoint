@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(res => res.json())
     .then(codeMap => {
       codeToFullnameMap = codeMap;
-      return fetch('./data/대전_구별_미세먼지_요약.json');
+      return fetch("https://fine-dust-api.onrender.com/api/average-dust");
     })
     .then(res => res.json())
     .then(avgMap => {
