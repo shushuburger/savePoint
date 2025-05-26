@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(res => res.json())
     .then(codeMap => {
       codeToFullnameMap = codeMap;
-      return fetch('./assets/data/group_avg.json');
+      return fetch('./data/대전_구별_미세먼지_요약.json');
     })
     .then(res => res.json())
     .then(avgMap => {
